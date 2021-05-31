@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  padding-left: 30px;
+}
+
+li {
+  text-decoration: line-through;
+}
+
+.section {
+  padding: 10px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordion {
+  border: 2px solid #0abda0;
+  border-radius: 5px;
+  max-width: 1100px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.accordion .accordion__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0abda0;
+  color: #f1f5f0;
+  padding: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+}
+
+.accordion .accordion__head h1 {
+  margin: 0;
+  display: inline-block;
+}
+
+.accordion .accordion__head span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 4px solid #f1f5f0;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-45deg);
+  transform-origin: 75% 25%;
+  transition: 0.8s ease;
+}
+
+.accordion .accordion__head .open {
+  transform: rotate(135deg);
+}
+
+.accordion .accordion__body {
+  display: none;
+  background: #f1f5f0;
+}
+
+.accordion .opened .accordion__body {
+  display: block;
+}
+
+.accordion .accordion__content {
+  display: grid;
+  grid-column-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: stretch;
+  align-items: center;
+  padding: 20px;
+}
+
+.accordion .accordion__content img {
+  width: 100%;
+  grid-column-start: 1;
+}
+
+.accordion .accordion__content div {
+  margin: 0;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.accordion .accordion__content--reverse img {
+  grid-column-start: 3;
+}
+
+.accordion .accordion__content--reverse div {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 1;
+}
+
+@media (max-width: 920px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .accordion .accordion__content img {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .accordion .accordion__content div {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .accordion .accordion__content--reverse div {
+    grid-row: 2;
+  }
+
+  .section {
+    align-items: flex-start;
+  }
+}
